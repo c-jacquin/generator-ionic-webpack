@@ -21,7 +21,6 @@ export function SchemaToFormly(schema, config){
           label: key,
           placeholder : key,
           validate: true,
-          validationsCustom : config.defaultErrorMessages,
           type : obj.inputType
         }
       };

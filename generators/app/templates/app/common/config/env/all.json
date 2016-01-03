@@ -1,9 +1,8 @@
 {
   "formly": {
     "inputType": "floating-input",
-    "class": "calm",
-    "defaultErrorMessages":"validation-errors.html"
-  },
+    "class": "calm"
+    },
   "crud": {
     "itemPerPage": 20
   }

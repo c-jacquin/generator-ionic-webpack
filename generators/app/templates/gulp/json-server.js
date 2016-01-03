@@ -6,11 +6,6 @@ import glob       from 'glob-promise';
 import jsonServer from 'json-server';
 import bodyParser from 'body-parser';
 
-import Prompt from './generator/lib/Prompt';
-import {displayError} from './generator/lib/_utils';
-
-import {addModel,addView, addModule} from './generator/index';
-
 let instance;
 
 function initServer(){
@@ -30,16 +25,18 @@ function initServer(){
         try{
           db[mock.replace('gulp/server/mockData/','').replace('.mock.json','')] =  require('./'+mock.replace('gulp/',''))
         }catch(err){
-          displayError(err);
+          console.error(err);
         }
       });
       var router = jsonServer.router(db);
       server.use(router);
       instance = server.listen(3000, ()=>{
-
+        console.log('server listening');
       });
     })
-    .catch(displayError)
+    .catch( err =>{
+      console.error(err);
+    })
 }
 
 gulp.task('json-server', (done)=> {
@@ -50,32 +47,4 @@ gulp.task('json-server', (done)=> {
       initServer();
     },1000)
   })
-});
-
-gulp.task('add:model', addModel);
-
-gulp.task('add:view', addView);
-
-gulp.task('add:module', ()=>{
-  addModule('crud');
-});
-
-gulp.task('generator', ()=>{
-  Prompt.generator()
-    .then((data)=>{
-      switch(data.generator){
-        case 'model':
-          addModel();
-          break;
-        case 'view':
-          addView();
-          break;
-        case 'module':
-
-          break;
-        default:
-
-          break;
-      }
-    })
 });

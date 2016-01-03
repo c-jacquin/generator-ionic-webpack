@@ -8,7 +8,7 @@ const mockPath = './gulp/server/mockData/user.mock.json';
 
 
 
-export default (server)=>{
+export default server =>{
   server.post('/auth/signup', (req, res)=>{
     jsonFile(mockPath)
       .then((file)=> {

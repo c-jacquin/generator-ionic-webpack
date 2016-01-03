@@ -1,5 +1,5 @@
 {
-  "name": "<%= apName %>",
+  "name": "<%= appName %>",
   "app_id": "",
   "gulpStartupTasks": [
     "webpack",
