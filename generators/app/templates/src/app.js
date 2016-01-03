@@ -2,13 +2,12 @@ import './styles/ionic.scss';
 import './app.scss';
 import template from './app.html';
 
-import './app.vendors';
-
+import angular from 'angular';
 import { AppConfig, Bootstrap, UiRouterErrorHandler } from './app.utils';
 import config from './common/config';
 
 
-const appModule = angular.module('<%= appName %>', <%= ngDep %>)
+const appModule = angular.module('<%= appName %>', <%- JSON.stringify(ngDep) %>)
   .config(AppConfig)
   .run (UiRouterErrorHandler)
   .directive('<%= appName %>', () => {

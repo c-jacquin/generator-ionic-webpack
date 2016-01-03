@@ -1,5 +1,5 @@
 {
-  "jsData": {
+  "api": {
     "basePath": "http://localhost:3000"
   }
 }

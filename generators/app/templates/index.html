@@ -6,9 +6,7 @@
     <title><%= appName %></title>
     <base href="/">
   </head>
-  <body ng-app="app" ng-cloak>
-    <app>
-      Loading...
-    </app>
+  <body ng-app="<%= appName %>" ng-cloak>
+    <%- appComponent %>
   </body>
 </html>

@@ -4,9 +4,6 @@ var webpack = require('webpack'),
   argv = require('yargs').argv;
 
 
-var appPath = path.join(__dirname, 'app');
-var appJsPath = path.join(appPath, 'app.js');
-
 
 module.exports = {
   cache: true,
@@ -14,10 +11,10 @@ module.exports = {
   devTool: 'inline-source-map',
   watch:true,
   //devtool: 'sourcemap',
-  entry: appJsPath,
+  entry: <%- webpackEntry %>,
   output: {
     path: path.join(__dirname, "www"),
-    filename: "bundle-[hash:6].js"
+    filename: "bundle.js"
   },
   module: {
     preLoaders: [

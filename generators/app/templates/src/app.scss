@@ -1,0 +1,82 @@
+//Form validation errors
+
+$alert-color: #B83E2C;
+$error-left-position: 20px;
+$animation-duration: 0.8s;
+$transition: $animation-duration - 0.3 linear all;
+@mixin transitions() {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin animate-enter() {
+  animation-name: enter;
+  animation-duration: $animation-duration;
+}
+@mixin animate-leave() {
+  animation-name: leave;
+  animation-duration: $animation-duration;
+}
+
+.validation-error {
+  border-top: 4px solid $alert-color;
+  padding: 15px;
+  padding-top: 5px;
+  margin-bottom: 15px;
+  height: 15px;
+  opacity: 0;
+  @include transitions;
+  &.ng-active.is-dirty {
+    // messages are visible
+    opacity:1;
+  }
+  &.ng-inactive {
+    // messages are hidden
+    opacity:0;
+  }
+}
+.error {
+  color: #555;
+  background-color:#fff;
+  font-weight: bold;
+  position: absolute;
+  left: $error-left-position;
+  float: left;
+  @include transitions;
+  i {
+    color: $alert-color;
+    vertical-align: middle;
+  }
+  &.ng-enter {
+    @include animate-enter;
+    &.ng-enter-active {
+    }
+  }
+  &.ng-leave  {
+    @include animate-leave;
+    &.ng-leave-active  {
+
+    }
+  }
+}
+
+@keyframes enter {
+             from {
+               left: -2000px;
+             }
+             to {
+               left: $error-left-position;
+
+             }
+           }
+
+@keyframes leave {
+             from {
+               left: $error-left-position;
+             }
+             to {
+               left: -2000px;
+
+             }
+           }

@@ -12,7 +12,7 @@ describe('generator-ionic-webpack-es-2015:app', ()=> {
 
   it('creates files', ()=> {
     assert.file([
-      'dummyfile.txt'
+      'package.json'
     ]);
   });
 });
