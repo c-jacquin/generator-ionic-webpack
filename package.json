@@ -47,6 +47,7 @@
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
+    "isparta": "^4.0.0",
     "yeoman-assert": "^2.0.0"
   },
   "repository": "Charl---/generator-ionic-webpack-es-2015",

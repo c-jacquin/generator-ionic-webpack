@@ -7,7 +7,6 @@ notifications:
   email: false
 node_js:
   - v5
-  - v4
 before_script:
   - npm prune
 script:
