@@ -1,0 +1,10 @@
+{
+  "formly": {
+    "inputType": "floating-input",
+    "class": "calm",
+    "defaultErrorMessages":"validation-errors.html"
+  },
+  "crud": {
+    "itemPerPage": 20
+  }
+}

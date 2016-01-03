@@ -1,0 +1,9 @@
+.idea
+.DS_Store
+.tmp
+.git
+node_modules
+.settings
+*.log
+www/vendor.bundle.js
+www/app.bundle.js

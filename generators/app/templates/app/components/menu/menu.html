@@ -1,0 +1,13 @@
+<ion-content>
+  <ion-list>
+    <ion-item ng-repeat="item in ::vm.menuItems track by item.label" ui-sref="{{ ::item.state }}">
+      {{ ::item.label }}
+    </ion-item>
+    <ion-item class="item-accordion"
+              ng-repeat="child in ::item.childrens"
+              ng-show="item.isVisible"
+              ui-sref="{{ child.state }}">
+      {{ ::child.label }}
+    </ion-item>
+  </ion-list>
+</ion-content>

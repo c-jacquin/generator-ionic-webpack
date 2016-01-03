@@ -1,0 +1,8 @@
+{
+  "name": "<%= apName %>",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "webpack",
+    "json-server"
+  ]
+}
