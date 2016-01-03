@@ -1,19 +1,16 @@
-'use strict';
 import path from 'path';
+import assert from 'yeoman-assert';
+import { test } from 'yeoman-generator';
 
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-generator').test;
-
-describe('generator-ionic-webpack-es-2015:app', function () {
+describe('generator-ionic-webpack-es-2015:app', ()=> {
   before(function (done) {
-    helpers.run(path.join(__dirname, '../generators/app'))
+    test.run(path.join(__dirname, '../generators/app'))
       .withOptions({someOption: true})
       .withPrompts({someAnswer: true})
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates files', ()=> {
     assert.file([
       'dummyfile.txt'
     ]);
