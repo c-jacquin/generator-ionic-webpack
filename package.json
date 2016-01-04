@@ -1,5 +1,5 @@
 {
-  "name": "generator-ionic-webpack-es-2015",
+  "name": "generator-ionic-webpack",
   "version": "0.0.0",
   "description": "",
   "homepage": "",
@@ -48,13 +48,15 @@
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
     "isparta": "^4.0.0",
+    "publish-latest": "^1.1.2",
     "yeoman-assert": "^2.0.0"
   },
   "repository": "Charl---/generator-ionic-webpack-es-2015",
   "scripts": {
     "build": "node_modules/.bin/babel -d generators/app/ src/",
     "commit": "git-cz",
-    "prepublish": "gulp prepublish",
+    "prepublish": "gulp prepublish && npm run build",
+    "postpublish": "publish-latest",
     "test": "gulp",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
