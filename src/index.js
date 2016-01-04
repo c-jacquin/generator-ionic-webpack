@@ -181,12 +181,12 @@ export default class MyGenerator extends Base {
         this.webpackEntry.push(this.destinationPath('src/app.js'));
         this.options.webpackEntry = JSON.stringify(this.webpackEntry);
         this.log(this.options.webpackEntry);
-        this.fs.copyTpl(this.templatePath('webpack.config.js'), this.destinationPath('webpack.config.js'), this.options);
+        this.fs.copyTpl(this.templatePath('webpack.config.js.tpl'), this.destinationPath('webpack.config.js'), this.options);
         this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), this.options);
         this.fs.copyTpl(this.templatePath('ionic.project'), this.destinationPath('ionic.project'), this.options);
         this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), this.options);
 
-        this.fs.copyTpl(this.templatePath('src/app.js'), this.destinationPath('src/app.js'), this.options);
+        this.fs.copyTpl(this.templatePath('src/app.js.tpl'), this.destinationPath('src/app.js'), this.options);
         this.fs.copyTpl(this.templatePath('src/app.html'), this.destinationPath('src/app.html'), this.options);
       },
       install() {
