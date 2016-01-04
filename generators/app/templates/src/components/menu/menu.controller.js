@@ -5,7 +5,6 @@ export default
 class MenuController {
   constructor() {
     this.name = 'menu';
-    console.log(menuData)
     this.menuItems = menuData;
   }
 }

@@ -1,1 +1,1 @@
-generators/**/*
+generators/app/index.js

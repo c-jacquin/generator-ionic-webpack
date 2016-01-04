@@ -5,9 +5,9 @@ export default class MyGenerator extends Base {
     constructor(...args) {
       super(...args);
       this.package = {
-        dependencies:[],
-        devDependencies:[]
-      }
+        dependencies: [],
+        devDependencies: []
+      };
       this.webpackEntry = [
         'lodash',
         'angular',
@@ -51,7 +51,7 @@ export default class MyGenerator extends Base {
             type: 'input',
             name: 'version',
             message: 'Enter the version of your app:',
-            default : '0.0.0'
+            default: '0.0.0'
           },
           {
             type: 'confirm',
@@ -87,19 +87,19 @@ export default class MyGenerator extends Base {
           this.options = answers;
           //regex camelCase to - separator string
           let tagName = this.options.appName.replace(/\.?([A-Z]+)/g,
-            (x,y)=> {
-            return "-" + y.toLowerCase()
+            (x, y)=> {
+              return '-' + y.toLowerCase();
             }
           );
-          tagName.replace(/^-/, "");
+          tagName.replace(/^-/, '');
           this.options.appComponent = `<${tagName}>Loading ...<${tagName}/>`;
           done();
         });
       },
-      dependencies(){
+      dependencies() {
         this.options.ngDep = ['ionic'];
 
-        if(this.options.formly){
+        if (this.options.formly) {
           this.options.ngDep.push('formlyIonic');
           this.package.dependencies.push('angular-formly');
           this.package.dependencies.push('api-check');
@@ -109,9 +109,9 @@ export default class MyGenerator extends Base {
           this.config.set('formly', true);
         }
 
-        if(this.options.modelService === 'restangular' || this.options.modelService === 'js-data'){
+        if (this.options.modelService === 'restangular' || this.options.modelService === 'js-data') {
           this.options.ngDep.push(this.options.modelService);
-          switch(this.options.modelService){
+          switch (this.options.modelService) {
             case 'restangular':
               this.package.dependencies.push('restangular');
               break;
@@ -122,19 +122,19 @@ export default class MyGenerator extends Base {
           }
         }
 
-        if(this.options.jsonServer){
+        if (this.options.jsonServer) {
           this.config.set('json-server', true);
           this.package.devDependencies.push('json-server');
           this.package.devDependencies.push('jwt-simple');
         }
       },
-      prepare(){
+      prepare() {
         this.mkdir(this.destinationPath('www'));
 
         this.fs.copy(this.templatePath('gulp/webpack.js'), this.destinationPath('gulp/webpack.js'));
         this.fs.copy(this.templatePath('gulp/prepare.js'), this.destinationPath('gulp/prepare.js'));
 
-        if(this.options.jsonServer){
+        if (this.options.jsonServer) {
           this.fs.copy(this.templatePath('gulp/json-server.js'), this.destinationPath('gulp/json-server.js'));
           this.directory(this.templatePath('gulp/server'), this.destinationPath('gulp/server'));
         }
@@ -144,11 +144,11 @@ export default class MyGenerator extends Base {
         this.directory(this.templatePath('src/common'), this.destinationPath('src/common'));
         this.fs.copy(this.templatePath('src/app.scss'), this.destinationPath('src/app.scss'));
 
-        if(this.options.modelService === 'restangular'){
+        if (this.options.modelService === 'restangular') {
           this.fs.copy(this.templatePath('src/app.utils.restangular.js'), this.destinationPath('src/app.utils.js'));
-        }else if(this.options.modelService === 'js-data'){
+        }else if (this.options.modelService === 'js-data') {
           this.fs.copy(this.templatePath('src/app.utils.js-data.js'), this.destinationPath('src/app.utils.js'));
-        }else{
+        }else {
           this.fs.copy(this.templatePath('src/app.utils.js'), this.destinationPath('src/app.utils.js'));
         }
 
@@ -161,11 +161,11 @@ export default class MyGenerator extends Base {
         this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
         this.fs.copy(this.templatePath('.editorconfig'), this.destinationPath('.editorconfig'));
       },
-      menu(){
-        if(this.options.menu){
+      menu() {
+        if (this.options.menu) {
           this.directory(this.templatePath('src/components/menu'), this.destinationPath('src/components/menu'));
           this.options.menuHtml = `<menu></menu>`;
-        }else{
+        }else {
           this.options.menuHtml =
           `<ion-content>
             <ion-list>
@@ -176,7 +176,7 @@ export default class MyGenerator extends Base {
           </ion-content>`;
         }
       },
-      template(){
+      template() {
         this.webpackEntry = this.webpackEntry.concat(this.package.dependencies);
         this.webpackEntry.push(this.destinationPath('src/app.js'));
         this.options.webpackEntry = JSON.stringify(this.webpackEntry);
@@ -189,9 +189,9 @@ export default class MyGenerator extends Base {
         this.fs.copyTpl(this.templatePath('src/app.js'), this.destinationPath('src/app.js'), this.options);
         this.fs.copyTpl(this.templatePath('src/app.html'), this.destinationPath('src/app.html'), this.options);
       },
-      install(){
-        this.npmInstall(this.package.dependencies, { 'save': true });
-        this.npmInstall(this.package.devDependencies, { 'saveDev': true });
+      install() {
+        this.npmInstall(this.package.dependencies, {save: true });
+        this.npmInstall(this.package.devDependencies, {saveDev: true });
         this.npmInstall();
       }
     };

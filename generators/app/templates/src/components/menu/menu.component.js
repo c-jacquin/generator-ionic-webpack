@@ -12,6 +12,4 @@ export default
     controllerAs: 'vm',
     bindToController: true
   };
-}
-
-
+};

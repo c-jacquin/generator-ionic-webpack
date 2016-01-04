@@ -4,7 +4,7 @@ import controller from './home.controller.js';
 
 export default appModule =>{
   appModule.config($stateProvider => {
-    'ngInject'
+    'ngInject';
     $stateProvider
       .state('home', {
         url: '/home',
@@ -12,6 +12,5 @@ export default appModule =>{
         controller,
         controllerAs: 'vm'
       });
-    }
-  );
-}
+  });
+};

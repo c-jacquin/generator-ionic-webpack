@@ -1,5 +1,5 @@
-function Bootstrap(appModule){
-  'ngInject'
+function Bootstrap(appModule) {
+  'ngInject';
   const components = require.context('./components', true, /index.js$/);
   const common = require.context('./common', true, /index.js$/);
 
@@ -18,17 +18,17 @@ function Bootstrap(appModule){
     });
 }
 
-function UiRouterErrorHandler($rootScope, $state){
-  'ngInject'
+function UiRouterErrorHandler($rootScope) {
+  'ngInject';
+  /*eslint no-unused-vars:0*/
   $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {
 
   });
 }
 
-function AppConfig($urlRouterProvider, config, RestangularProvider){
-  'ngInject'
+function AppConfig($urlRouterProvider, config, RestangularProvider) {
+  'ngInject';
   $urlRouterProvider.otherwise('/home');
-
   RestangularProvider.setBaseUrl(config.api.basePath);
 }
 
@@ -36,4 +36,4 @@ export {
   AppConfig,
   Bootstrap,
   UiRouterErrorHandler
-}
+};

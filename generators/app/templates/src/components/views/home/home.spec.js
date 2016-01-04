@@ -1,13 +1,12 @@
-import HomeModule from './home'
+import './home';
 import HomeController from './home.controller';
 import HomeTemplate from './home.html';
 
 describe('Home', () => {
-  let $rootScope, makeController;
+  let makeController;
 
-  beforeEach(window.module('qds'));
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
+  beforeEach(window.mocks.module('qds'));
+  beforeEach(window.mocks.inject(() => {
     makeController = () => {
       return new HomeController();
     };
