@@ -57,7 +57,7 @@
     "commit": "git-cz",
     "prepublish": "gulp prepublish && npm run build",
     "postpublish": "publish-latest",
-    "test": "gulp",
+    "test": "echo test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "license": "MIT"
