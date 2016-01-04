@@ -92,9 +92,9 @@ var MyGenerator = (function (_Base) {
             _this2.options = answers;
             //regex camelCase to - separator string
             var tagName = _this2.options.appName.replace(/\.?([A-Z]+)/g, function (x, y) {
-              return "-" + y.toLowerCase();
+              return '-' + y.toLowerCase();
             });
-            tagName.replace(/^-/, "");
+            tagName.replace(/^-/, '');
             _this2.options.appComponent = '<' + tagName + '>Loading ...<' + tagName + '/>';
             done();
           });
@@ -132,9 +132,6 @@ var MyGenerator = (function (_Base) {
           }
         },
         prepare: function prepare() {
-          this.mkdir(this.destinationPath('gulp'));
-          this.mkdir(this.destinationPath('src/components'));
-          this.mkdir(this.destinationPath('src/components/views'));
           this.mkdir(this.destinationPath('www'));
 
           this.fs.copy(this.templatePath('gulp/webpack.js'), this.destinationPath('gulp/webpack.js'));
@@ -146,6 +143,7 @@ var MyGenerator = (function (_Base) {
           }
 
           this.directory(this.templatePath('hooks'), this.destinationPath('hooks'));
+          this.directory(this.templatePath('src/components/views'), this.destinationPath('src/components/views'));
           this.directory(this.templatePath('src/common'), this.destinationPath('src/common'));
           this.fs.copy(this.templatePath('src/app.scss'), this.destinationPath('src/app.scss'));
 
@@ -179,17 +177,17 @@ var MyGenerator = (function (_Base) {
           this.webpackEntry.push(this.destinationPath('src/app.js'));
           this.options.webpackEntry = JSON.stringify(this.webpackEntry);
           this.log(this.options.webpackEntry);
-          this.fs.copyTpl(this.templatePath('webpack.config.js'), this.destinationPath('webpack.config.js'), this.options);
+          this.fs.copyTpl(this.templatePath('webpack.config.js.tpl'), this.destinationPath('webpack.config.js'), this.options);
           this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), this.options);
           this.fs.copyTpl(this.templatePath('ionic.project'), this.destinationPath('ionic.project'), this.options);
           this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), this.options);
 
-          this.fs.copyTpl(this.templatePath('src/app.js'), this.destinationPath('src/app.js'), this.options);
+          this.fs.copyTpl(this.templatePath('src/app.js.tpl'), this.destinationPath('src/app.js'), this.options);
           this.fs.copyTpl(this.templatePath('src/app.html'), this.destinationPath('src/app.html'), this.options);
         },
         install: function install() {
-          this.npmInstall(this.package.dependencies, { 'save': true });
-          this.npmInstall(this.package.devDependencies, { 'saveDev': true });
+          this.npmInstall(this.package.dependencies, { save: true });
+          this.npmInstall(this.package.devDependencies, { saveDev: true });
           this.npmInstall();
         }
       };

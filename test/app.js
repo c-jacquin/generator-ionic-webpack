@@ -1,12 +1,11 @@
 import path from 'path';
 import assert from 'yeoman-assert';
-import { test } from 'yeoman-generator';
+import test from 'yeoman-test';
 
 describe('generator-ionic-webpack-es-2015:app', ()=> {
   before(function (done) {
     test.run(path.join(__dirname, '../generators/app'))
-      .withOptions({someOption: true})
-      .withPrompts({someAnswer: true})
+      .withPrompts({appNAme: 'testApp'})
       .on('end', done);
   });
 

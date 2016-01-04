@@ -15,8 +15,8 @@ gulp.task('static', ()=> {
   return gulp.src('**/*.js')
     .pipe(excludeGitignore())
     .pipe(eslint())
-    .pipe(eslint.format());
-    //.pipe(eslint.failAfterError());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('nsp', cb => {
@@ -24,7 +24,7 @@ gulp.task('nsp', cb => {
 });
 
 gulp.task('pre-test', ()=> {
-  return gulp.src(['generators/**/*.js', '!generators/app/templates/**/*'])
+  return gulp.src(['generators/**/*.js', '!generators/app/templates/hooks/**/*'])
     .pipe(istanbul({
       includeUntested: true,
       instrumenter: Instrumenter

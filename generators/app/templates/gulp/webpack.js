@@ -10,9 +10,9 @@ gulp.task('clean', (done)=>{
   });
 });
 
-gulp.task('webpack',['clean'], ()=> {
-  webpack(wpConfig, (err, stats)=> {
-    if(err){
+gulp.task('webpack', ['clean'], ()=> {
+  webpack(wpConfig, (err)=> {
+    if (err) {
       console.error(err);
     }
   });

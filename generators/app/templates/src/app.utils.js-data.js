@@ -9,12 +9,12 @@ function Bootstrap(appModule) {
 
   requireAll(components)
     .forEach((componentFactory)=>{
-      componentFactory(appModule);
+      componentFactory.default(appModule);
     });
 
   requireAll(common)
     .forEach((componentFactory)=>{
-      componentFactory(appModule);
+      componentFactory.default(appModule);
     });
 }
 
