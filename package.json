@@ -51,7 +51,10 @@
     "publish-latest": "^1.1.2",
     "yeoman-assert": "^2.0.0"
   },
-  "repository": "Charl---/generator-ionic-webpack-es-2015",
+  "repository": {
+    "type": "GIT",
+    "url": "https://github.com/Charl---/generator-ionic-webpack-es-2015.git"
+  },
   "scripts": {
     "build": "node_modules/.bin/babel -d generators/app/ src/",
     "commit": "git-cz",
