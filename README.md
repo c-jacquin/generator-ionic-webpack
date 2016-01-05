@@ -1,5 +1,8 @@
-# generator-ionic-webpack-es-2015 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> 
+# generator-ionic-webpack-es-2015
+[![npm version](https://badge.fury.io/js/generator-ionic-webpack.svg)](https://badge.fury.io/js/generator-ionic-webpack)
+[![Travis](https://img.shields.io/travis/Charl---/generator-ionic-webpack.svg)]()
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
 
 ## Installation
 

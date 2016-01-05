@@ -56,9 +56,9 @@
     "url": "https://github.com/Charl---/generator-ionic-webpack.git"
   },
   "scripts": {
-    "build": "node_modules/.bin/babel -d generators/app/ src/",
+    "build": "node_modules/.bin/babel -d generators/ src/",
     "commit": "git-cz",
-    "prepublish": "gulp prepublish && npm run build",
+    "prepublish": "npm run build",
     "postpublish": "publish-latest",
     "test": "echo test",
     "semantic-release": "node_modules/.bin/semantic-release pre && npm publish && node_modules/.bin/semantic-release post"
