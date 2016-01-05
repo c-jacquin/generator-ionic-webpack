@@ -19,5 +19,5 @@ deploy:
   api_key:
     secure: VBdKjfgJjsY1uyH8lGqBCWr06jk5Yw+8CShLxqoASyo1lEaUg0EfanSyqVSWretU7PE5FvcPClCSJr336uvRsmJXm5rwp7qcEyq/DpkZoJr17ycFEHT9IK6Bf36gVkjk/4nCfwDNMqk5Zfd25htQwFhknpAxlDGmj70fl6BCMh77ifqbSkzxHW9IkCtOlfGAwB8dTpYUEdGj15SXKPR+QXr4BaRSDdlR+E4kY/o02jgNbQ42Q0QVmaiiau7UHsgobsGJXPK1sQfS4hvvh3hvDHOeOp2EtyXmjwlf8gfmGUgJVJIhCayiF/bQAs6Q1Ee5E++dTPgqkW/Pln6qKV6+2pIzISsH3802x/NU/saFpJJZjGYwwsO/WD7PaCEi9FJ6WQNL2aY8XP6KlpQGXaGzrMBcvqMHHctANxv+6gnksw1+bKXQ3wiT/+ZHK/61MkRSmojxcZvOuYvFL1/yfzfS2G3M1Dv5zqmJbc5sRtrOlomlQ588jHx7JHs7CBKEZKtXfOqPLIUEFQ173vVhVbYJ7T2q4vCT9PiTTsHIkKy+pghnOAhY7fbF2DPWaj5cAA7lYPGaA2M6QGZkn1NQynoBcq81yyxRBZTlABlpttu2TsEvju4DYA/5izbcgbmNRgRShCiKREOeWuXN0Y+sQRtivxtQAXcDaVLBUwYgOfydppo=
   on:
-    tags: true
+    tags: false
     repo: Charl---/generator-ionic-webpack
