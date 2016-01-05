@@ -6,17 +6,19 @@
 
 ## Installation
 
+# Do not use (in development)
+
 First, install [Yeoman](http://yeoman.io) and generator-ionic-webpack-es-2015 using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-ionic-webpack-es-2015
+npm install -g generator-ionic-webpack
 ```
 
 Then generate your new project:
 
 ```bash
-yo ionic-webpack-es-2015
+yo ionic-webpack
 ```
 
 ## Getting To Know Yeoman
