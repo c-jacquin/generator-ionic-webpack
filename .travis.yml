@@ -3,7 +3,9 @@ language: node_js
 notifications:
   email: false
 node_js:
-- v5
+  - '4'
+before_install:
+  - npm i -g npm@^2.0.0
 before_script:
 - npm prune
 script:
@@ -18,3 +20,6 @@ deploy:
   on:
     tags: false
     repo: Charl---/generator-ionic-webpack
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"

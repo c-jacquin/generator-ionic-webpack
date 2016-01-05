@@ -1,6 +1,5 @@
 {
   "name": "generator-ionic-webpack",
-  "version": "0.0.0-semantically-released",
   "description": "",
   "homepage": "",
   "author": {
@@ -56,11 +55,11 @@
     "url": "https://github.com/Charl---/generator-ionic-webpack.git"
   },
   "scripts": {
-    "build": "node_modules/.bin/babel -d generators/ src/",
+    "build": "babel -d generators/ src/",
     "commit": "git-cz",
     "prepublish": "npm run build",
     "test": "echo test",
-    "semantic-release": "node_modules/.bin/semantic-release pre && npm publish && node_modules/.bin/semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "license": "MIT"
 }
