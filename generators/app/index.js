@@ -154,8 +154,7 @@ var MyGenerator = (function (_Base) {
           } else {
             this.fs.copy(this.templatePath('src/app.utils.js'), this.destinationPath('src/app.utils.js'));
           }
-
-          this.fs.copy(this.templatePath('src/app.html'), this.destinationPath('src/app.html'));
+          this.fs.copy(this.templatePath('.babelrc'), this.destinationPath('.babelrc'));
           this.fs.copy(this.templatePath('.eslintrc'), this.destinationPath('.eslintrc'));
           this.fs.copy(this.templatePath('README.md'), this.destinationPath('README.md'));
           this.fs.copy(this.templatePath('LICENSE'), this.destinationPath('LICENSE'));

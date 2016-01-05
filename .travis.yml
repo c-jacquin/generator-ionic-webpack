@@ -1,20 +1,23 @@
 sudo: false
 language: node_js
-deploy:
-api_key:
-secure: "YF18L6SCKorFMeg4VT1GU2eQrQOnuBkx7WPXGdCOk5MZxx0b6JDSKE5LT153dwrahfV21+tqnTNiV/V7/Hquz63M+xFbeB1tE9RWH407TM52/Ieob3IOhDpRR7OWwEWQE+An0JzNxfvXRiz7FXdtXGJcOmltdDVsqr0uB7vpVJiG7I45BYrTcdyL5GOskRfXaBNceV83OLQNctOOZEtc7oHnU3M987MZtFkpv5ZXchV6Sr/TenAmaG9EbkYG6QB4Q4yaDuNzeuYSWJMiOfPEyYsVIpxApwS9UQKKpylHNncAur7BGrp8gErrRHJ7FdlHMWgdDsw4kLuoc0JagQEwMbU4ut2/KZ0CWzOpomMytEztfwEh886lxFDezuzXwiPuB79K68K0IvIaAraDPpfyi0/RRqLGBR7aB6ntRl1btx87OpQPl/mcAqHTMB5I006qvgkJrekM+5OS6hze6NFVpS/P1x4QiRvSawex3/ZZgm3d7Z7Lb9MrxAtELLdm1Kb+gjFjCr3x2eT6AOaWbP0BNoO0i0ZyfnZXmY9EpyaYHtomy00vtk784Ix364OCmZax+IW8cY3NwmmfyPpv4QhoB3fBAT+Dql4QE0baA8cazHIgsKXeVQnTd0ZUMELGBXG2TZgPr6Vs6IVaNsGZINM1y8eGTJWcahV5R45/C9x5eJw="
-email: charles.jacuin@gmail.com
-provider: npm
 cache:
   directories:
-    - node_modules
+  - node_modules
 notifications:
   email: false
 node_js:
-  - v5
+- v5
 before_script:
-  - npm prune
+- npm prune
 script:
-  - npm run test
+- npm run test
 after_success:
-  - npm run semantic-release
+- npm run semantic-release
+deploy:
+  provider: npm
+  email: charles.jacquin@gmail.com
+  api_key:
+    secure: VBdKjfgJjsY1uyH8lGqBCWr06jk5Yw+8CShLxqoASyo1lEaUg0EfanSyqVSWretU7PE5FvcPClCSJr336uvRsmJXm5rwp7qcEyq/DpkZoJr17ycFEHT9IK6Bf36gVkjk/4nCfwDNMqk5Zfd25htQwFhknpAxlDGmj70fl6BCMh77ifqbSkzxHW9IkCtOlfGAwB8dTpYUEdGj15SXKPR+QXr4BaRSDdlR+E4kY/o02jgNbQ42Q0QVmaiiau7UHsgobsGJXPK1sQfS4hvvh3hvDHOeOp2EtyXmjwlf8gfmGUgJVJIhCayiF/bQAs6Q1Ee5E++dTPgqkW/Pln6qKV6+2pIzISsH3802x/NU/saFpJJZjGYwwsO/WD7PaCEi9FJ6WQNL2aY8XP6KlpQGXaGzrMBcvqMHHctANxv+6gnksw1+bKXQ3wiT/+ZHK/61MkRSmojxcZvOuYvFL1/yfzfS2G3M1Dv5zqmJbc5sRtrOlomlQ588jHx7JHs7CBKEZKtXfOqPLIUEFQ173vVhVbYJ7T2q4vCT9PiTTsHIkKy+pghnOAhY7fbF2DPWaj5cAA7lYPGaA2M6QGZkn1NQynoBcq81yyxRBZTlABlpttu2TsEvju4DYA/5izbcgbmNRgRShCiKREOeWuXN0Y+sQRtivxtQAXcDaVLBUwYgOfydppo=
+  on:
+    tags: true
+    repo: Charl---/generator-ionic-webpack
