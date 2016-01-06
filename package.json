@@ -24,8 +24,11 @@
     }
   },
   "dependencies": {
-    "yeoman-generator": "^0.22.2",
+    "babel-polyfill": "^6.3.14",
     "chalk": "^1.0.0",
+    "co": "^4.6.0",
+    "inquirer-async": "^1.1.0",
+    "yeoman-generator": "^0.22.2",
     "yosay": "^1.0.2"
   },
   "devDependencies": {
@@ -58,6 +61,7 @@
   "scripts": {
     "build": "babel -d generators/ src/",
     "commit": "git-cz",
+    "dev": "babel -d generators/ src/ -w",
     "prepublish": "npm run build",
     "test": "echo test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"

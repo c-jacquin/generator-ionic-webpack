@@ -110,6 +110,7 @@ export default class MyGenerator extends Base {
         }
 
         if (this.options.modelService === 'restangular' || this.options.modelService === 'js-data') {
+          this.config.set('model', this.options.modelService);
           this.options.ngDep.push(this.options.modelService);
           switch (this.options.modelService) {
             case 'restangular':
