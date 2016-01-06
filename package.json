@@ -59,7 +59,7 @@
     "url": "https://github.com/Charl---/generator-ionic-webpack.git"
   },
   "scripts": {
-    "build": "babel -d generators/ src/",
+    "build": "node_modules/.bin/babel -d generators/ src/",
     "commit": "git-cz",
     "dev": "babel -d generators/ src/ -w",
     "prepublish": "npm run build",
