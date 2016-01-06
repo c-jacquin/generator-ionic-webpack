@@ -5,7 +5,7 @@ notifications:
 node_js:
   - '5.3.0'
 before_install:
-  - npm i -g npm@^3.3.12 && npm i -g babel
+  - npm i -g babel-cli
 before_script:
 - npm prune
 script:
