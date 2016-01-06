@@ -9,7 +9,7 @@ class <%= upCaseName %> {
    */
   constructor(Restangular) {
     'ngInject'
-    return Restangular.all('<%= name %>')
+    return Restangular.all('<%= name %>');
   }
 }
 
