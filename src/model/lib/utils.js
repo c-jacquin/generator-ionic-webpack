@@ -56,7 +56,6 @@ function propertyPrompt() {
           name: 'validation',
           message: 'Wich validation do you want for your property ?',
           choices: (answers)=>{
-            console.log(answers);
             let choices;
             switch (answers.type) {
               case 'string':

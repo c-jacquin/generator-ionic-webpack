@@ -1,1 +1,6 @@
 generators/
+src/app/templates/
+src/model/templates/
+src/crud/templates/
+src/view/templates/
+src/component/templates/

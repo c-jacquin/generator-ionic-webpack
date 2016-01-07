@@ -10,6 +10,31 @@ import istanbul from 'gulp-istanbul';
 import nsp from 'gulp-nsp';
 import plumber from 'gulp-plumber';
 import coveralls from 'gulp-coveralls';
+import copy from 'gulp-copy';
+import babel from 'gulp-babel';
+import del from 'del';
+
+gulp.task('clean', ()=>{
+  del(['generators/**/*']).then(()=> {
+    console.log('Deleted build folders');
+  });
+});
+
+gulp.task('copyTpl', ()=>{
+  gulp.src('src/**/templates/**/*')
+    .pipe(copy('generators', {
+      prefix: 1
+    }));
+});
+
+gulp.task('build', ['clean', 'copyTpl'], () => {
+  return gulp.src(['src/**/*.js', '!src/**/templates/**/*'])
+    .pipe(babel({
+      presets: ['es2015', 'stage-0'],
+      plugins: ['syntax-async-generators', 'add-module-exports']
+    }))
+    .pipe(gulp.dest('generators'));
+});
 
 gulp.task('static', ()=> {
   return gulp.src('**/*.js')
@@ -59,5 +84,5 @@ gulp.task('coveralls', ['test'], ()=> {
     .pipe(coveralls());
 });
 
-gulp.task('prepublish', ['nsp']);
+gulp.task('prepublish', ['nsp', 'build']);
 gulp.task('default', ['static', 'test', 'coveralls']);

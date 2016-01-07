@@ -25,15 +25,14 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
-    "chalk": "^1.0.0",
+    "chalk": "^1.1.1",
     "co": "^4.6.0",
     "inquirer-async": "^1.1.0",
     "yeoman-generator": "^0.22.2",
-    "yosay": "^1.0.2"
+    "yosay": "^1.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.3.17",
-    "babel-core": "^6.3.26",
+    "babel-core": "^6.4.0",
     "babel-eslint": "^5.0.0-beta6",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-syntax-async-generators": "^6.3.13",
@@ -41,28 +40,30 @@
     "babel-preset-stage-0": "^6.3.13",
     "commitizen": "^2.4.6",
     "cz-conventional-changelog": "^1.1.5",
-    "eslint": "^1.10.3",
-    "gulp": "^3.6.0",
-    "gulp-coveralls": "^0.1.0",
-    "gulp-eslint": "^1.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-copy": "0.0.2",
+    "gulp-coveralls": "^0.1.4",
+    "gulp-eslint": "^1.1.1",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-istanbul": "^0.10.3",
-    "gulp-mocha": "^2.0.0",
-    "gulp-nsp": "^2.1.0",
-    "gulp-plumber": "^1.0.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nsp": "^2.2.1",
+    "gulp-plumber": "^1.0.1",
     "isparta": "^4.0.0",
     "semantic-release": "^4.3.5",
-    "yeoman-assert": "^2.0.0"
+    "yeoman-assert": "^2.1.1"
   },
   "repository": {
     "type": "GIT",
     "url": "https://github.com/Charl---/generator-ionic-webpack.git"
   },
   "scripts": {
-    "build": "node_modules/.bin/babel -d generators/ src/",
+    "build": "gulp build",
     "commit": "git-cz",
     "dev": "babel -d generators/ src/ -w",
-    "prepublish": "npm run build",
+    "prepublish": "gulp prepublish",
     "test": "echo test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
