@@ -34,29 +34,31 @@ class ModelGenerator extends Base {
           });
       },
       formlyConfigObject() {
-        const done = this.async();
-        this.log('Now you have to define properties for your model');
-        propertyPrompt().then(properties =>{
-          this.properties = properties.map(data =>{
-            return {
-              key: data.name,
-              //todo fix this
-              type: 'input',
-              templateOptions: _({
-                label: data.name,
-                placeholder: data.name,
-                type: data.inputType,
-                required: data.required,
-                minlength: data.minlength,
-                maxlength: data.maxlength,
-                pattern: data.pattern,
-                min: data.min,
-                max: data.max
-              }).omit(_.isUndefined).omit(_.isNull).value()
-            };
+        if (this.config.getAll.formly()) {
+          const done = this.async();
+          this.log('Now you have to define properties for your model');
+          propertyPrompt().then(properties =>{
+            this.properties = properties.map(data =>{
+              return {
+                key: data.name,
+                //todo fix this
+                type: 'input',
+                templateOptions: _({
+                  label: data.name,
+                  placeholder: data.name,
+                  type: data.inputType,
+                  required: data.required,
+                  minlength: data.minlength,
+                  maxlength: data.maxlength,
+                  pattern: data.pattern,
+                  min: data.min,
+                  max: data.max
+                }).omit(_.isUndefined).omit(_.isNull).value()
+              };
+            });
+            done();
           });
-          done();
-        });
+        }
       },
       template() {
         const options = {
@@ -65,7 +67,11 @@ class ModelGenerator extends Base {
           formlyConfig: eslintFormatJson(JSON.stringify(this.properties, null, 2))
         };
         this.fs.copyTpl(this.templatePath(`model.${this.config.getAll().model}.js`), this.destinationPath(`src/common/model/${this.name}/${options.upCaseName}.js`), options);
-        this.fs.copyTpl(this.templatePath('index.js'), this.destinationPath(`src/common/model/${this.name}/index.js`), options);
+        if (this.config.getAll().formly) {
+          this.fs.copyTpl(this.templatePath('index.formly.js'), this.destinationPath(`src/common/model/${this.name}/index.js`), options);
+        }else {
+          this.fs.copyTpl(this.templatePath('index.js'), this.destinationPath(`src/common/model/${this.name}/index.js`), options);
+        }
       }
     };
   }
