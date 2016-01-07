@@ -62,8 +62,6 @@
   "scripts": {
     "build": "gulp build",
     "commit": "git-cz",
-    "dev": "babel -d generators/ src/ -w",
-    "prepublish": "gulp prepublish",
     "test": "echo test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
