@@ -85,6 +85,8 @@ export default class MyGenerator extends Base {
 
         this.prompt(prompt, answers => {
           this.options = answers;
+          this.config.set('appModule', answers.name);
+          this.config.set('menu', answers.menu);
           //regex camelCase to - separator string
           let tagName = this.options.appName.replace(/\.?([A-Z]+)/g,
             (x, y)=> {

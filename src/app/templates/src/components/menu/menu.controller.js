@@ -1,9 +1,10 @@
 import menuData from './menu.json';
 
-export default
-/*@ngInject*/
+export default MenuController;
+
 class MenuController {
   constructor() {
+    'ngInject';
     this.name = 'menu';
     this.menuItems = menuData;
   }

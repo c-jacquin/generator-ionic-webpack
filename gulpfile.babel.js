@@ -14,20 +14,23 @@ import copy from 'gulp-copy';
 import babel from 'gulp-babel';
 import del from 'del';
 
-gulp.task('clean', ()=>{
+gulp.task('clean', (done)=>{
   del(['generators/**/*']).then(()=> {
     console.log('Deleted build folders');
+    done();
   });
 });
 
-gulp.task('copyTpl', ()=>{
-  gulp.src('src/**/templates/**/*')
+gulp.task('copyTpl', ['clean'], ()=>{
+  gulp.src('src/**/templates/**/*', {
+    dot: true
+  })
     .pipe(copy('generators', {
       prefix: 1
     }));
 });
 
-gulp.task('build', ['clean', 'copyTpl'], () => {
+gulp.task('build', ['copyTpl'], () => {
   return gulp.src(['src/**/*.js', '!src/**/templates/**/*'])
     .pipe(babel({
       presets: ['es2015', 'stage-0'],

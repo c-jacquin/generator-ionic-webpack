@@ -34,7 +34,7 @@ class ModelGenerator extends Base {
           });
       },
       formlyConfigObject() {
-        if (this.config.getAll.formly()) {
+        if (this.config.get('formly')) {
           const done = this.async();
           this.log('Now you have to define properties for your model');
           propertyPrompt().then(properties =>{
@@ -66,8 +66,8 @@ class ModelGenerator extends Base {
           upCaseName: cap(this.name),
           formlyConfig: eslintFormatJson(JSON.stringify(this.properties, null, 2))
         };
-        this.fs.copyTpl(this.templatePath(`model.${this.config.getAll().model}.js`), this.destinationPath(`src/common/model/${this.name}/${options.upCaseName}.js`), options);
-        if (this.config.getAll().formly) {
+        this.fs.copyTpl(this.templatePath(`model.${this.config.get('model')}.js`), this.destinationPath(`src/common/model/${this.name}/${options.upCaseName}.js`), options);
+        if (this.config.get('formly')) {
           this.fs.copyTpl(this.templatePath('index.formly.js'), this.destinationPath(`src/common/model/${this.name}/index.js`), options);
         }else {
           this.fs.copyTpl(this.templatePath('index.js'), this.destinationPath(`src/common/model/${this.name}/index.js`), options);
